@@ -5,46 +5,58 @@
 -Gustavo Henrique Florentin Pires Pereira
 
 -Carlos Eduardo Galvão Tomaoka
-
 ## Visão Geral do Projeto
 
-O **FifaGame** é um aplicativo Android desenvolvido como projeto final da disciplina de Programação para Dispositivos Móveis (ProgMov 2025) da FACOM-UFMS. Seu objetivo é facilitar o gerenciamento de partidas de FIFA Soccer entre jogadores, permitindo o registro de resultados, estatísticas e histórico de confrontos.
+O **UFC Fighters Manager** é um aplicativo Android desenvolvido como trabalho final da disciplina de Programação para Dispositivos Móveis (ProgMov 2025) da FACOM-UFMS. O app tem como principal objetivo registrar e visualizar informações detalhadas sobre lutadores do UFC, como suas medidas físicas, desempenho em lutas e características técnicas.
 
-O sistema permite o cadastro de usuários com autenticação segura, armazenamento de foto de perfil e gerenciamento completo de jogos disputados. O projeto utiliza o banco de dados local Room, respeita princípios de usabilidade, acessibilidade e segurança, e foi desenvolvido utilizando os principais componentes modernos do Android Studio.
+Com foco em organização, visualização rápida e segurança, o aplicativo permite que os usuários cadastrem novos personagens/lutadores, atualizem seus dados e acompanhem suas estatísticas. Utiliza banco de dados local (Room) para persistência dos dados, respeitando requisitos de usabilidade, acessibilidade e segurança.
 
 ## Usuários
 
-O aplicativo possui um único perfil de usuário: **Jogador Registrado**.
+O aplicativo possui um único tipo de usuário: **Usuário Registrado (Administrador dos Dados)**.
 
-- **Jogador Registrado**
-  - Realiza login e cadastro no sistema (com foto e senha segura).
-  - Registra partidas disputadas contra outros jogadores.
-  - Visualiza histórico de partidas e estatísticas pessoais.
-  - Edita ou remove partidas registradas.
-  - Filtra jogos pelo nickname de outros jogadores.
-  - Acessa sua foto de perfil e dados pessoais com segurança.
+- **Usuário Registrado**
+  - Pode se cadastrar no app (incluindo foto de perfil).
+  - Faz login com autenticação segura (hash da senha).
+  - Cadastra novos lutadores de UFC.
+  - Visualiza a lista de todos os lutadores registrados.
+  - Edita e remove dados de lutadores.
+  - Filtra e busca lutadores pelo nome.
+  - Visualiza estatísticas detalhadas de cada lutador.
 
 ## Requisitos Funcionais
 
-- **Cadastro de Usuários**
-  - Cadastro com foto de perfil e senha (armazenada com hash).
-  - Validação de campos obrigatórios e formatos de dados.
-  - Tratamento de erros como campos vazios ou entrada inválida (ex: texto em campo numérico).
+- **Cadastro de Usuário**
+  - Cadastro com foto de perfil.
+  - Armazenamento seguro de senha (hash).
+  - Validação de campos obrigatórios e formatos.
+  - Prevenção de cadastro com campos vazios ou entrada inválida (ex: letras em campos numéricos).
 
-- **Login de Usuários**
-  - Tela inicial de autenticação.
-  - Impede acesso de usuários não cadastrados.
+- **Login**
+  - Tela inicial com autenticação.
+  - Bloqueio de acesso a usuários não cadastrados.
+  - Exibição de mensagens de erro apropriadas.
 
-- **Gerenciamento de Partidas**
-  - Inserção de dados de uma nova partida: jogadores, placar, data.
-  - Edição e exclusão de partidas registradas.
-  - Visualização de partidas anteriores em uma lista.
+- **Cadastro de Lutadores**
+  - Nome do lutador.
+  - Altura (em metros).
+  - Peso (em kg).
+  - Distância média do soco (em metros).
+  - Parciais das lutas (ex: vitórias, derrotas, empates).
+  - Validação completa dos dados inseridos.
 
-- **Relatórios e Filtros**
-  - Filtro de partidas por nickname do adversário.
-  - Relatório simples de desempenho individual.
+- **Gerenciamento de Lutadores**
+  - Listagem completa com dados principais.
+  - Visualização individual com estatísticas completas.
+  - Edição de dados dos lutadores.
+  - Remoção segura com confirmação.
 
-- **Tratamento de Erros e Validações**
-  - Erros de login (usuário inexistente ou senha incorreta).
-  - Campos obrigatórios validados.
-  - Prevenção de divisão por zero ou entrada de dados incompatíveis.
+- **Filtros e Relatórios**
+  - Filtro por nome.
+  - Estatísticas consolidadas por lutador.
+
+- **Tratamento de Erros e Testes de Caixa Preta**
+  - Impede acesso com login inválido.
+  - Alerta ao deixar campos obrigatórios vazios.
+  - Validações para impedir letras em campos numéricos.
+  - Prevenção de divisão por zero nas estatísticas, se aplicável.
